@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>蔡美林 · 简历与个人官网</title>
+    <style>
+        /* 全局重置 — 淡蓝·高级简约 保留呼吸感 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eef4fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a2c3f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* 主容器 — 更通透的质感 */
+        .container {
+            max-width: 1120px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(3px);
+            border-radius: 40px;
+            box-shadow: 0 22px 44px -14px rgba(20, 50, 70, 0.18), 0 8px 20px rgba(0, 0, 0, 0.02);
+            padding: 2.4rem 2.6rem 3rem 2.6rem;
+            border: 1px solid rgba(160, 198, 225, 0.5);
+            transition: all 0.3s;
+        }
+
+        /* 头部区域 */
+        .hero-section {
+            margin-bottom: 2.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 1px solid #cde0ef;
+            padding-bottom: 1.2rem;
+        }
+
+        .name-title h1 {
+            font-size: 3rem;
+            font-weight: 420;
+            letter-spacing: -0.3px;
+            color: #153e57;
+            line-height: 1.1;
+            margin-bottom: 0.2rem;
+        }
+
+        .sub {
+            font-size: 1rem;
+            font-weight: 360;
+            color: #5f82a4;
+            letter-spacing: 0.2px;
+        }
+
+        .job-tag {
+            background: #e2eff9;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            color: #2a6285;
+            font-weight: 460;
+        }
+
+        /* 两栏核心布局: 左侧照片(比例调小) + 右侧简介感性区 */
+        .profile-main {
+            display: grid;
+            grid-template-columns: 0.8fr 1.4fr;
+            gap: 2.4rem;
+            align-items: start;
+            margin-bottom: 2.5rem;
+        }
+
+        /* 照片区域 — 调小视觉占比，更精致 */
+        .photo-card {
+            background: #ffffffc9;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px -12px rgba(34, 68, 96, 0.18);
+            padding: 0.6rem;
+            border: 1px solid rgba(140, 184, 216, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .image-area {
+            background-color: #d3e5f5;
+            border-radius: 26px;
+            overflow: hidden;
+            aspect-ratio: 3 / 3.6;  /* 比例收窄，更符合证件/半身照，视觉上更精致 */
+            width: 100%;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02), 0 6px 12px -8px rgba(46, 78, 105, 0.2);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            display: block;
+            transition: transform 0.3s ease;
+            border-radius: 26px;
+        }
+
+        .image-area:hover .profile-image {
+            transform: scale(1.02);
+        }
+
+        .photo-caption {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #7599bb;
+            margin-top: 0.7rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* 右侧bio (融合感性+真实信息) */
+        .bio-intro {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        .bio-block {
+            background: transparent;
+            border-bottom: 1px solid #d4e4f2;
+            padding-bottom: 0.9rem;
+        }
+
+        .section-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            color: #638bb0;
+            margin-bottom: 0.5rem;
+        }
+
+        .bio-text {
+            font-size: 0.96rem;
+            font-weight: 340;
+            color: #1e3d5b;
+            line-height: 1.55;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .tag {
+            background: rgba(185, 213, 236, 0.45);
+            padding: 0.2rem 0.9rem;
+            border-radius: 32px;
+            font-size: 0.8rem;
+            font-weight: 360;
+            color: #2b5c83;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 0.9rem;
+            border-left: 3px solid #b7d2ea;
+            padding-left: 1rem;
+            color: #3c688c;
+        }
+
+        /* 简历详细卡片区 — 更加整齐，符合个人网页格局 */
+        .resume-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin-top: 0.8rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 28px;
+            padding: 1.2rem 1.6rem;
+            border: 1px solid rgba(166, 202, 229, 0.5);
+            transition: background 0.2s, transform 0.1s;
+            backdrop-filter: blur(2px);
+        }
+
+        .info-card:hover {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: #b9d2ea;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+            font-weight: 520;
+            font-size: 1rem;
+            color: #234f72;
+            letter-spacing: -0.2px;
+        }
+
+        .card-header span {
+            background: #e2eff9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #2b6289;
+        }
+
+        .course-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 0.5rem;
+        }
+
+        .course-badge {
+            background: #ecf4fc;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            color: #2a5a80;
+            border: 1px solid #d1e2f0;
+        }
+
+        .work-list {
+            list-style: none;
+            margin-top: 0.2rem;
+        }
+
+        .work-list li {
+            font-size: 0.88rem;
+            margin-bottom: 0.45rem;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #1d4464;
+        }
+
+        .work-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #779fc1;
+            font-size: 0.8rem;
+        }
+
+        .award-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        .award-item {
+            background: #eef4fa;
+            padding: 0.25rem 1rem;
+            border-radius: 32px;
+            font-size: 0.8rem;
+            font-weight: 370;
+            color: #235a7e;
+        }
+
+        .score-line {
+            font-size: 0.85rem;
+            color: #3c6e96;
+            background: #eaf2f9;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            margin-top: 0.5rem;
+        }
+
+        .self-text {
+            font-size: 0.92rem;
+            line-height: 1.55;
+            color: #1c405e;
+        }
+
+        /* 视频区 — 优雅嵌入 */
+        .video-wrapper {
+            margin-top: 2rem;
+            border-top: 1px solid #cde0ef;
+            padding-top: 2rem;
+        }
+
+        .video-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            color: #638bb0;
+            margin-bottom: 0.8rem;
+        }
+
+        .video-container {
+            background-color: #cbe2f2;
+            border-radius: 30px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 12px 26px -14px rgba(28, 65, 95, 0.2);
+            border: 1px solid rgba(126, 171, 207, 0.4);
+            transition: all 0.2s;
+        }
+
+        .personal-video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            cursor: pointer;
+            background: #bdd4ea;
+        }
+
+        .video-container:hover {
+            transform: scale(1.002);
+            box-shadow: 0 20px 30px -14px #1f5170a0;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            text-align: right;
+            font-size: 0.75rem;
+            color: #8aaccc;
+            border-top: 1px solid #d2e3f2;
+            padding-top: 1rem;
+            font-weight: 320;
+        }
+
+        /* 响应式布局优化 */
+        @media (max-width: 800px) {
+            .container {
+                padding: 1.8rem;
+            }
+            .profile-main {
+                grid-template-columns: 1fr;
+                gap: 1.6rem;
+            }
+            .photo-card {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            .hero-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .info-card {
+                padding: 1rem;
+            }
+            .course-badge, .award-item {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <!-- 头部区域：姓名 + 求职意向标签 -->
+    <div class="hero-section">
+        <div class="name-title">
+            <h1>蔡美林</h1>
+            <div class="sub">MEILIN CAI · 汉语国际教育</div>
+        </div>
+        <div class="job-tag">教师 · 编辑 · 助教</div>
+    </div>
+
+    <!-- 双栏布局：左侧照片（比例调小更精致）+ 右侧简介融合真实信息 -->
+    <div class="profile-main">
+        <!-- 左侧照片区 (比例3:3.6，视觉上更小巧舒适) -->
+        <div class="photo-card">
+            <div class="image-area">
+                <img src="file:///Users/xiaolin/Desktop/个人网页/林.jpg"
+                     alt="蔡美林肖像"
+                     class="profile-image"
+                     onerror="this.src='https://via.placeholder.com/400x480?text=Photo+Preview'; this.onerror=null;">
+            </div>
+            <div class="photo-caption">✦ 日常 · 教学实践 ✦</div>
+        </div>
+
+        <!-- 右侧简介：保持感性+硬实力融合 -->
+        <div class="bio-intro">
+            <div class="bio-block">
+                <div class="section-label">关于我</div>
+                <div class="bio-text">
+                    四川外国语大学汉语国际教育专业本科（2027届）。兼具教学热忱与内容创作敏感度，<strong>相信跨文化之美</strong>。
+                    曾任学生会组织部部长，策划统筹多项校园活动与推优工作。以“理性中的诗意”为信条，致力于国际中文教育及编辑出版。
+                </div>
+            </div>
+            <div class="bio-block">
+                <div class="section-label">核心能力</div>
+                <div class="tag-list">
+                    <span class="tag">汉语教学</span>
+                    <span class="tag">文案编辑</span>
+                    <span class="tag">活动策划</span>
+                    <span class="tag">新媒体写作</span>
+                    <span class="tag">跨文化交际</span>
+                    <span class="tag">办公自动化</span>
+                </div>
+            </div>
+            <div class="bio-block">
+                <div class="section-label">座右铭</div>
+                <div class="quote">
+                    “将复杂性简化至本质，但绝不剥夺其灵魂。”
+                </div>
+                <div style="margin-top: 0.6rem; font-size:0.85rem; color:#517faa;">
+                    学习成绩均分87.13 · 英语CET-4
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 详细简历模块：教育、工作经历、获奖及自我评价，布局更符合个人网页气质 -->
+    <div class="resume-grid">
+        <!-- 教育背景 -->
+        <div class="info-card">
+            <div class="card-header">
+                📖 教育背景 <span>Education</span>
+            </div>
+            <div style="font-weight: 480; color: #1d5279;">四川外国语大学 · 汉语国际教育专业（本科）</div>
+            <div style="font-size: 0.85rem; color: #547e9e; margin: 0.2rem 0 0.4rem;">2023.09 – 2027.06</div>
+            <div class="course-badges">
+                <span class="course-badge">汉语国际教育概论</span>
+                <span class="course-badge">中国古代文学史</span>
+                <span class="course-badge">中国现当代文学</span>
+                <span class="course-badge">第二语言习得研究</span>
+                <span class="course-badge">中外语言学史</span>
+                <span class="course-badge">现代汉语</span>
+                <span class="course-badge">写作</span>
+                <span class="course-badge">语言学概论</span>
+                <span class="course-badge">文学概论</span>
+                <span class="course-badge">语言学名著导读</span>
+                <span class="course-badge">海外汉语教学研究</span>
+            </div>
+            <div class="score-line">📊 历年平均成绩 87.13 | 英语四级 (CET-4)</div>
+        </div>
+
+        <!-- 工作/实践经历 -->
+        <div class="info-card">
+            <div class="card-header">
+                💼 实践经历 <span>Experience</span>
+            </div>
+            <div style="font-weight: 500; margin-bottom: 0.3rem; color: #1f5a7e;">中国语言文化学院学生会组织部 · 部长</div>
+            <div style="font-size: 0.75rem; color: #6f96b7; margin-bottom: 0.6rem;">2023.05 – 2025.05</div>
+            <ul class="work-list">
+                <li>推进团组织相关工作及推优，审查资料，开展并录入团课与团日活动。</li>
+                <li>撰写活动策划方案、主持稿、新闻稿、活动推文，并跟进全程执行。</li>
+                <li>负责线上团组织关系转接，优化内部流程，获“先进个人”基础荣誉。</li>
+            </ul>
+            <div style="margin-top: 0.3rem; font-size: 0.8rem; background: #e8f1f8; padding: 0.3rem 0.8rem; border-radius: 28px; display: inline-block;">
+                ✍️ 活动统筹 · 文案能力 · 跨部门协作
+            </div>
+        </div>
+
+        <!-- 获奖及荣誉 -->
+        <div class="info-card">
+            <div class="card-header">
+                🏅 获奖与荣誉 <span>Awards</span>
+            </div>
+            <div class="award-wrapper">
+                <span class="award-item">🥇 四川外国语大学微团课大赛 校级一等奖</span>
+                <span class="award-item">🥉 重庆市大学生新文科创新大赛 铜奖</span>
+                <span class="award-item">🎬 形势与政策视频大赛 校级二等奖</span>
+                <span class="award-item">🌟 四川外国语大学三下乡 优秀团队</span>
+                <span class="award-item">📖 2025-2026 校级精神文明先进个人</span>
+            </div>
+            <div class="score-line" style="margin-top: 0.6rem;">🏆 学习能力 & 创新实践 双重认可</div>
+        </div>
+
+        <!-- 自我评价 -->
+        <div class="info-card">
+            <div class="card-header">
+                🌱 自我评价 <span>Self-Evaluation</span>
+            </div>
+            <div class="self-text">
+                工作积极认真，细心负责，熟练运用办公自动化软件，善于在工作中提出问题、发现问题、解决问题，有较强的分析能力；
+                勤奋好学，踏实肯干，动手能力强，认真负责，有很强的社会责任感；吃苦耐劳，喜欢和勇于迎接新挑战。
+            </div>
+            <div class="tag-list" style="margin-top: 0.8rem;">
+                <span class="tag">责任心</span>
+                <span class="tag">快速学习</span>
+                <span class="tag">文字敏锐度</span>
+                <span class="tag">抗压能力</span>
+                <span class="tag">团队驱动</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 视频区域：保留原有教学视频，完全符合要求，布局干净大气 -->
+    <div class="video-wrapper">
+        <div class="video-label">🎥 教学视频 · 课堂实践</div>
+        <div class="video-container">
+            <video class="personal-video"
+                   src="file:///Users/xiaolin/Desktop/个人网页/教学视频.mp4"
+                   controls
+                   preload="metadata"
+                   playsinline
+                   webkit-playsinline
+                   onerror="this.style.backgroundColor='#bdd4ea'; this.outerHTML='<div style=\'background:#bdd4ea; width:100%; height:100%; display:flex; align-items:center; justify-content:center; border-radius:30px; color:#2f628b;\'>⚠️ 视频未找到，请确认路径 / 教学视频.mp4</div>'">
+                您的浏览器不支持 video 标签。
+            </video>
+        </div>
+        <div style="margin-top: 0.6rem; text-align: right; font-size: 0.75rem; color: #87a9c9;">
+            🎞️ 微课教学 | 点击播放
+        </div>
+    </div>
+
+    <!-- 底部落款 保留原诗意气息 -->
+    <div class="footer">
+        ✦ 淡蓝深处 · 美林  |  基于杭州  ·  开放合作 ✦
+    </div>
+</div>
+</body>
+</html>
